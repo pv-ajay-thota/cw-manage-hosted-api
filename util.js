@@ -39,6 +39,7 @@ myData = {
 
 }
 
+myData = JSON.parse(myData);
 
 
 
