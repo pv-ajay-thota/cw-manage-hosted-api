@@ -21,50 +21,38 @@ function removeTaskListDrop() {
   var optns = oldmenu.getElementsByTagName("option");
   length = optns.length;
 
-  for (var i = length - 1; i>0; i--) {
+  for (var i = length - 1; i > 0; i--) {
     if (optns[i].value != "") {
-    //   console.log("inside: " + optns[i].text);
+      //   console.log("inside: " + optns[i].text);
       optns[i].remove();
     }
   }
 
-  document.getElementById("id-link").innerHTML = '';
+  document.getElementById("id-link").innerHTML = "";
 
-  document.getElementById("id-title").innerHTML = '';
+  document.getElementById("id-title").innerHTML = "";
 
-  document.getElementById("id-task-desc").innerHTML = '';
+  document.getElementById("id-task-desc").innerHTML = "";
 
   // oldmenu.innerHTML = '';
 }
 
 function showDesc(ele) {
+  var taskId = ele.options[ele.selectedIndex].value;
+  var divTag = document.getElementById("desc");
 
+  task = myData.taskList.filter(function (item) {
+    return item.taskId == taskId;
+  });
 
+  document.getElementById("id-link").innerHTML =
+    "<p>" + "<b>task url: </b>" + task[0].url + "</p>";
 
-    var taskId = ele.options[ele.selectedIndex].value;
-    var divTag = document.getElementById("desc");
+  document.getElementById("id-title").innerHTML =
+    "<p>" + "<b>Selected: </b>" + task[0].name + "</p>";
 
-    
-    
-    task = myData.taskList.filter(function(item){
-        return item.taskId == taskId
-    });
-
-    document.getElementById("id-link").innerHTML = '<p>'+ 
-    "<b>task url: </b>"+
-    task[0].url
-    +'</p>'
-
-    document.getElementById("id-title").innerHTML = '<p>'+ 
-    "<b>Selected: </b>"+
-     task[0].name
-    +'</p>'
-
-    document.getElementById("id-task-desc").innerHTML = '<p>'+ 
-    "<b>Decription: </b>"+
-    task[0].description
-    +'</p>'
-
+  document.getElementById("id-task-desc").innerHTML =
+    "<p>" + "<b>Decription: </b>" + task[0].description + "</p>";
 }
 
 function populateTaskList(ele) {
@@ -109,6 +97,18 @@ function populateTaskList(ele) {
 }
 
 function populateProd() {
+
+  loadJSON(
+    "task-inventory.json",
+    function (data) {
+      console.log(data);
+      myData = data;
+    },
+    function (xhr) {
+      console.error(xhr);
+    }
+  );
+
   var doc = document.getElementById("dd");
   if (myData.products.length < 1) {
     return;
