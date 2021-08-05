@@ -7,6 +7,7 @@
     <script src="./util.js"></script>
     <title>testing loading json</title>
     <script>
+      
       loadJSON(
         "task-inventory.json",
         function (data) {
@@ -16,7 +17,6 @@
           console.error(xhr);
         }
       );
-      var taskListDropAdded = 0;
     </script>
     <style>
       .drop-down {
@@ -34,7 +34,7 @@
       }
     </style>
   </head>
-  <body onload="populateProd(myData)">
+  <body onload="populateProd(this.myData)">
     <div id="dd">
       <!-- <div class="drop-down" id="product-list"><select name="product-list" id="id-product" onchange="populateTaskList(this)">
             <option value="">-- Select Product--</option>

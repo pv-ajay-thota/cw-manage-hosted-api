@@ -96,12 +96,13 @@ function populateTaskList(ele) {
   }
 }
 
-function populateProd() {
+function populateProd(myData) {
+
   // var doc = document.getElementById("dd");
-  if (myData.products.length < 1) {
+  if (this.myData.products.length < 1) {
     return;
   } else {
-    var productsList = myData.products;
+    var productsList = this.myData.products;
     var selectDropDown = document.getElementById("product-list");
 
     for (i = 0; i < productsList.length; i++) {
