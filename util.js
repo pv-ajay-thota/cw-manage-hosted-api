@@ -99,10 +99,10 @@ function populateTaskList(ele) {
 function populateProd(myData) {
 
   var doc = document.getElementById("dd");
-  if (myData.products.length < 1) {
+  if (window.myData.products.length < 1) {
     return;
   } else {
-    var productsList = myData.products;
+    var productsList = window.myData.products;
     // var divTag = document.getElementById("id-product");
     // var selectDropDown = document.createElement("select");
     var selectDropDown = document.getElementById("product-list");
