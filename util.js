@@ -11,7 +11,7 @@ function loadJSON(path, success, error) {
       }
     }
   };
-  xhr.open("GET", path, true);
+  xhr.open("GET", path, false);
   xhr.send();
 }
 
