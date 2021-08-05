@@ -9,9 +9,23 @@
     <script language="javascript">
       var connectWiseClientApi;
       var dirty = false;
-
+      var myData ;
       document.addEventListener("DOMContentLoaded", function (event) {
         onReady();
+        loadJSON(
+          "./task-inventory.json",
+          function (data) {
+            console.log(data);
+            myData = data;
+          },
+          function (xhr) {
+            console.error(xhr);
+          }
+        );
+        console.log("displaying myData: ");
+        console.log(myData);
+        console.log("displaying data: ");
+        console.log(data);
       });
 
       function onReady() {
@@ -143,14 +157,17 @@
       loadJSON(
         "./task-inventory.json",
         function (data) {
-        
-        window.myData = data;
-        
+          console.log(data);
+          myData = data;
         },
         function (xhr) {
           console.error(xhr);
         }
       );
+      console.log("displaying myData: ");
+      console.log(myData);
+      console.log("displaying data: ");
+      console.log(data);
     </script>
 
     <style>
@@ -172,10 +189,10 @@
         border: 1px solid #ff0000;
         background-color: #ffeeee;
       }
-      div {
+/*      div {
         padding: 1px;
       }
-
+*/
       .drop-down {
         display: inline-block;
       }

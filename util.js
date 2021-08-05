@@ -97,21 +97,12 @@ function populateTaskList(ele) {
 }
 
 function populateProd() {
-
-  var doc = document.getElementById("dd");
-  if (window.myData.products.length < 1) {
+  // var doc = document.getElementById("dd");
+  if (myData.products.length < 1) {
     return;
   } else {
-    var productsList = window.myData.products;
-    // var divTag = document.getElementById("id-product");
-    // var selectDropDown = document.createElement("select");
+    var productsList = myData.products;
     var selectDropDown = document.getElementById("product-list");
-    // selectDropDown.setAttribute("id", "product-list");
-    // selectDropDown.setAttribute("onchange", "populateTaskList(this)");
-    // var optnEle = document.createElement("option");
-    // optnEle.setAttribute("value", "");
-    // optnEle.text = "-- Select Product --";
-    // selectDropDown.add(optnEle);
 
     for (i = 0; i < productsList.length; i++) {
       var optnEle = document.createElement("option");
@@ -119,19 +110,6 @@ function populateProd() {
       optnEle.text = productsList[i];
 
       selectDropDown.add(optnEle);
-
-      //   inrBdy =
-      //     inrBdy +
-      //     '<option value="' +
-      //     productsList[i] +
-      //     '">' +
-      //     productsList[i] +
-      //     "</option>";
     }
-
-    // divTag.appendChild(selectDropDown);
-    // inrBdy = inrBdy + "</select></div>";
-
-    // doc.innerHTML = doc.innerHTML + inrBdy;
   }
 }
