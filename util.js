@@ -11,7 +11,8 @@ function loadJSON(path, success, error) {
       }
     }
   };
-  xhr.open("GET", path, false);
+  // xhr request
+  xhr.open("GET", path, false /* wait till the request is complete */ );
   xhr.send();
 }
 
