@@ -139,12 +139,13 @@
 
     <script>
       var myData;
+
       loadJSON(
         "./task-inventory.json",
         function (data) {
-          console.log(data);
-          myData = data;
-          console.log(myData);
+        
+        window.myData = data;
+        
         },
         function (xhr) {
           console.error(xhr);
