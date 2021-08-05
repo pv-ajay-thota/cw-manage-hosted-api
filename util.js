@@ -96,7 +96,7 @@ function populateTaskList(ele) {
   }
 }
 
-function populateProd() {
+function populateProd(myData) {
 
   var doc = document.getElementById("dd");
   if (myData.products.length < 1) {
