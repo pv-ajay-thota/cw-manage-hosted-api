@@ -99,17 +99,23 @@ function populateTaskList(ele) {
 
 function populateProd() {
   // var doc = document.getElementById("dd");
-  if (myData.products.length < 1) {
-    return;
-  } else {
-    var productsList = myData.products;
-    var selectDropDown = document.getElementById("product-list");
-
-    for (var i = 0; i < productsList.length; i++) {
-      var optnEle = document.createElement("option");
-      optnEle.setAttribute("value", productsList[i]);
-      optnEle.text = productsList[i];
-      selectDropDown.add(optnEle);
+  try{
+    if (myData.products.length < 1) {
+      return;
+    } else {
+      var productsList = myData.products;
+      var selectDropDown = document.getElementById("product-list");
+  
+      for (var i = 0; i < productsList.length; i++) {
+        var optnEle = document.createElement("option");
+        optnEle.setAttribute("value", productsList[i]);
+        optnEle.text = productsList[i];
+        selectDropDown.add(optnEle);
+      }
     }
   }
+  catch{
+    console.log("some exception occured.")
+  }
+
 }
