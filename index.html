@@ -141,7 +141,7 @@
       loadJSON(
         "./task-inventory.json",
         function (data) {
-          myData = data;
+          myData = this.data;
         },
         function (xhr) {
           console.error(xhr);
