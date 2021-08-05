@@ -40,7 +40,7 @@ myData = {
 }
 
 myData = JSON.parse(myData);
-
+console.log(myData);
 
 
 function loadJSON(path, success, error) {
