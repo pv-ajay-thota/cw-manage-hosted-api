@@ -7,16 +7,16 @@
     <script src="./util.js"></script>
     <title>testing loading json</title>
     <script>
-      
-      loadJSON(
-        "task-inventory.json",
-        function (data) {
-          myData = data;
-        },
-        function (xhr) {
-          console.error(xhr);
-        }
-      );
+      var myData;
+        loadJSON(
+          "task-inventory.json",
+          function (data) {
+            window.myData = data;
+          },
+          function (xhr) {
+            console.error(xhr);
+          }
+        );
     </script>
     <style>
       .drop-down {
@@ -27,14 +27,14 @@
       .textbox {
         background-color: #bfbcb4;
         width: auto;
-      };
+      }
 
       #product-list {
         width: 100px;
       }
     </style>
   </head>
-  <body onload="populateProd(this.myData)">
+  <body onload="populateProd()">
     <div id="dd">
       <!-- <div class="drop-down" id="product-list"><select name="product-list" id="id-product" onchange="populateTaskList(this)">
             <option value="">-- Select Product--</option>
@@ -71,6 +71,5 @@
       <div class="textbox" id="id-title"></div>
       <div class="textbox" id="id-task-desc"></div>
     </div>
-
   </body>
 </html>

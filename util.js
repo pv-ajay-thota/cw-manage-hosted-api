@@ -1,3 +1,4 @@
+"use strict";
 function loadJSON(path, success, error) {
   // function to load JSON file as input
   var xhr = new XMLHttpRequest();
@@ -41,7 +42,7 @@ function showDesc(ele) {
   var taskId = ele.options[ele.selectedIndex].value;
   var divTag = document.getElementById("desc");
 
-  task = myData.taskList.filter(function (item) {
+  var task = myData.taskList.filter(function (item) {
     return item.taskId == taskId;
   });
 
@@ -92,24 +93,22 @@ function populateTaskList(ele) {
       selectDropDown.add(optnEle);
     }
     // divTag.appendChild(selectDropDown);
-    taskListDropAdded = 1;
+    
   }
 }
 
-function populateProd(myData) {
-
+function populateProd() {
   // var doc = document.getElementById("dd");
-  if (this.myData.products.length < 1) {
+  if (myData.products.length < 1) {
     return;
   } else {
-    var productsList = this.myData.products;
+    var productsList = myData.products;
     var selectDropDown = document.getElementById("product-list");
 
-    for (i = 0; i < productsList.length; i++) {
+    for (var i = 0; i < productsList.length; i++) {
       var optnEle = document.createElement("option");
       optnEle.setAttribute("value", productsList[i]);
       optnEle.text = productsList[i];
-
       selectDropDown.add(optnEle);
     }
   }
