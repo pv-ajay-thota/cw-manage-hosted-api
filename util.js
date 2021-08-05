@@ -98,17 +98,6 @@ function populateTaskList(ele) {
 
 function populateProd() {
 
-  loadJSON(
-    "task-inventory.json",
-    function (data) {
-      console.log(data);
-      myData = data;
-    },
-    function (xhr) {
-      console.error(xhr);
-    }
-  );
-
   var doc = document.getElementById("dd");
   if (myData.products.length < 1) {
     return;
