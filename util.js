@@ -1,4 +1,4 @@
-"use strict";
+
 function loadJSON(path, success, error) {
   // function to load JSON file as input
   var xhr = new XMLHttpRequest();
@@ -12,31 +12,24 @@ function loadJSON(path, success, error) {
     }
   };
   // xhr request
-  xhr.open("GET", path, false /* wait till the request is complete */ );
+  xhr.open("GET", path, false /* wait till the request is complete */);
   xhr.send();
 }
 
 function removeTaskListDrop() {
-  //   var parentNodeEle = document.getElementById("dd");
   var oldmenu = document.getElementById("task-list");
-  //   parentNodeEle.removeChild(oldmenu);
   var optns = oldmenu.getElementsByTagName("option");
   length = optns.length;
 
   for (var i = length - 1; i > 0; i--) {
     if (optns[i].value != "") {
-      //   console.log("inside: " + optns[i].text);
       optns[i].remove();
     }
   }
 
   document.getElementById("id-link").innerHTML = "";
-
   document.getElementById("id-title").innerHTML = "";
-
   document.getElementById("id-task-desc").innerHTML = "";
-
-  // oldmenu.innerHTML = '';
 }
 
 function showDesc(ele) {
@@ -47,14 +40,10 @@ function showDesc(ele) {
     return item.taskId == taskId;
   });
 
-  document.getElementById("id-link").innerHTML =
-    "<p>" + "<b>task url: </b>" + task[0].url + "</p>";
-
-  document.getElementById("id-title").innerHTML =
-    "<p>" + "<b>Selected: </b>" + task[0].name + "</p>";
-
-  document.getElementById("id-task-desc").innerHTML =
-    "<p>" + "<b>Decription: </b>" + task[0].description + "</p>";
+  // update fields
+  document.getElementById("id-link").value = task[0].url;
+  document.getElementById("id-title").value = task[0].name;
+  document.getElementById("id-task-desc").value = task[0].description;
 }
 
 function populateTaskList(ele) {
@@ -77,14 +66,6 @@ function populateTaskList(ele) {
     }
 
     var selectDropDown = document.getElementById("task-list");
-    // var divTag = document.getElementById("id-taskList");
-    // var selectDropDown = document.createElement("select");
-    // selectDropDown.setAttribute("id", "task-list");
-    // selectDropDown.setAttribute("onchange", "showDesc(this)");
-    // var optnEle = document.createElement("option");
-    // optnEle.setAttribute("value", "");
-    // optnEle.text = "-- Select Task --";
-    // selectDropDown.add(optnEle);
 
     for (var i = 0; i < taskList.length; i++) {
       var optnEle = document.createElement("option");
@@ -93,20 +74,17 @@ function populateTaskList(ele) {
 
       selectDropDown.add(optnEle);
     }
-    // divTag.appendChild(selectDropDown);
-    
   }
 }
 
 function populateProd() {
-  // var doc = document.getElementById("dd");
-  try{
+  try {
     if (myData.products.length < 1) {
       return;
     } else {
       var productsList = myData.products;
       var selectDropDown = document.getElementById("product-list");
-  
+
       for (var i = 0; i < productsList.length; i++) {
         var optnEle = document.createElement("option");
         optnEle.setAttribute("value", productsList[i]);
@@ -114,9 +92,13 @@ function populateProd() {
         selectDropDown.add(optnEle);
       }
     }
+  } catch {
+    console.log("some exception occured.");
   }
-  catch{
-    console.log("some exception occured.")
-  }
+  
+}
 
+function initSelection(){
+  populateProd();
+  //future functions for initialization yet to be written.
 }
