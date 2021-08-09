@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://serviceops.connectwise.com/styles/cwstyle.css"
     />
-    <title>testing loading json</title>
+    <title>CW-PST Automation</title>
     <script>
       var myData;
 
@@ -26,7 +26,7 @@
           }
         };
         // xhr request
-        xhr.open("GET", path, false /* wait till the request is complete */);
+        xhr.open("GET", path, true /* wait till the request is complete */);
         xhr.send();
       }
 
@@ -41,8 +41,8 @@
           }
         }
 
-        document.getElementById("id-link").innerHTML = "";
-        document.getElementById("id-title").innerHTML = "";
+        document.getElementById("id-link").value = "";
+        document.getElementById("id-title").value = "";
         document.getElementById("id-task-desc").innerHTML = "";
       }
 
@@ -58,8 +58,6 @@
         document.getElementById("id-link").value = task[0].url;
         document.getElementById("id-title").value = task[0].name;
         document.getElementById("id-task-desc").innerHTML = task[0].description;
-        document.getElementById("id-task-desc").style.height =
-          document.getElementById("id-task-desc").scrollHeight + "px";
       }
 
       function populateTaskList(ele) {
@@ -116,19 +114,44 @@
       }
 
       function initSelection() {
-        populateProd();
+
+        loadJSON(
+          "task-inventory.json",
+          function (data) {
+            window.myData = data;
+            populateProd();
+          },
+          function (xhr) {
+            console.error(xhr);
+          }
+        );
+
+        
         //future functions for initialization yet to be written.
       }
 
-      loadJSON(
-        "task-inventory.json",
-        function (data) {
-          window.myData = data;
-        },
-        function (xhr) {
-          console.error(xhr);
+      function copyToClipBoard() {
+        var taskDescElement = document.getElementById("id-task-desc");
+        if(taskDescElement.value == "" || taskDescElement.value == undefined){
+            window.alert("nothing to copy");
         }
-      );
+        else{
+          taskDescElement.select();
+          document.execCommand("copy");
+          window.alert("copied to clipboard");
+        }
+      }
+
+      function downloadTask(){
+        $taskUrl = document.getElementById("id-link").value;
+        if($taskUrl === "" || $taskUrl == undefined){
+          alert("please select a task to download");
+        }
+        else{
+          window.open($taskUrl,"_blank");
+        }
+      }
+
     </script>
     <style>
       .inline {
@@ -155,7 +178,9 @@
   </head>
 
   <body onload="initSelection()">
-    <div>
+
+    <div class="cw-text">
+
       <div class="cw-field-label" style="margin-bottom: 8px">
         Select Automation task:
       </div>
@@ -222,7 +247,13 @@
             />
           </div>
           <div style="float: right; position: absolute; top: 0; right: 0">
-            <button class="cw-toolbar-button">Download</button>
+            <button
+              id="btn-download"
+              class="cw-toolbar-button"
+              onclick="downloadTask()"
+            >
+              Download
+            </button>
           </div>
         </div>
       </div>
@@ -240,24 +271,22 @@
           class="inline verticalalign"
           style="position: relative; width: 89%"
         >
-          <div>
-            <textarea
-              class="cw-textarea"
-              name="id-task-desc"
-              id="id-task-desc"
-              readonly="readonly"
-              style="
-                height: 120px;
-                width: 100%;
-                resize: none;
-                overflow: visible;
-                background-color: rgba(231, 224, 210, 0.801);
-              "
-            >
-            </textarea>
-          </div>
+          <textarea
+            class="cw-textarea"
+            name="id-task-desc"
+            id="id-task-desc"
+            readonly="readonly"
+            style="height: auto; width: 100%; resize: none; overflow: hidden;
+            background-color: azure;"
+          ></textarea>
           <div style="float: right; position: absolute; top: 0; right: 0">
-            <button class="cw-toolbar-button" >copy</button>
+            <button
+              id="btn-copy"
+              class="cw-toolbar-button"
+              onclick="copyToClipBoard()"
+            >
+              copy
+            </button>
           </div>
         </div>
       </div>
