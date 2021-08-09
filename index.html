@@ -12,6 +12,7 @@
     <title>CW-PST Automation</title>
     <script>
       var myData;
+      var taskInventoryUrl = "task-inventory.json";
 
       function loadJSON(path, success, error) {
         // function to load JSON file as input
@@ -118,8 +119,9 @@
       }
 
       function initSelection() {
+        
         loadJSON(
-          "task-inventory.json",
+          taskInventoryUrl,
           function (data) {
             window.myData = data;
             populateProd();
