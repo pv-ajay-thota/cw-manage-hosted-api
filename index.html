@@ -57,7 +57,9 @@
         // update fields
         document.getElementById("id-link").value = task[0].url;
         document.getElementById("id-title").value = task[0].name;
-        document.getElementById("id-task-desc").value = task[0].description;
+        document.getElementById("id-task-desc").innerHTML = task[0].description;
+        document.getElementById("id-task-desc").style.height =
+          document.getElementById("id-task-desc").scrollHeight + "px";
       }
 
       function populateTaskList(ele) {
@@ -129,8 +131,12 @@
       );
     </script>
     <style>
-      .drop-down {
+      .inline {
         display: inline-block;
+      }
+
+      .verticalalign {
+        vertical-align: top;
       }
 
       /*
@@ -149,103 +155,112 @@
   </head>
 
   <body onload="initSelection()">
-    <div id="dd" style="margin-bottom: 8px">
-      <div class="cw-field-label">Select Automation task:</div>
+    <div>
+      <div class="cw-field-label" style="margin-bottom: 8px">
+        Select Automation task:
+      </div>
+      <!-- select product and task -->
+      <div id="dd" style="margin-bottom: 8px">
+        <div class="cw-field-label inline" style="width: 10%">Product:</div>
 
-      <table style="width: 100%">
-        <tr>
-          <td style="width: 10%">
-            <div class="cw-field-label drop-down">
-              <p>Product:</p>
-            </div>
-          </td>
-          <td style="width: 20%">
-            <select
-              style="width: 100%"
-              class="cw-select"
-              id="product-list"
-              onchange="populateTaskList(this)"
-              style="margin-left: 8px"
-            >
-              <option value="">-- Select Product --</option>
-            </select>
-          </td>
-          <td style="width: 75%">
-            <select
-              style="width: 100%"
-              class="cw-select"
-              id="task-list"
-              onchange="showDesc(this)"
-            >
-              <option value="">-- Select Task --</option>
-            </select>
-          </td>
-        </tr>
-      </table>
-    </div>
+        <select
+          style="width: 20%"
+          class="cw-select inline"
+          id="product-list"
+          onchange="populateTaskList(this)"
+          style="margin-left: 8px"
+        >
+          <option value="">-- Select Product --</option>
+        </select>
 
-    <!-- Task Description goes here. -->
-    <!-- Selected: Task Name -->
-    <!-- Description: description of the task. -->
+        <select
+          style="width: 69%"
+          class="cw-select inline"
+          id="task-list"
+          onchange="showDesc(this)"
+        >
+          <option value="">-- Select Task --</option>
+        </select>
+      </div>
+      <!-- select product and task ends here -->
+      <!-- Selected: Task Name -->
+      <div style="margin-bottom: 8px">
+        <div class="cw-field-label inline" style="width: 10%">Selected :</div>
 
-    <div class="textbox" style="margin-bottom: 8px">
-      <table style="width: 100%">
-        <tr>
-          <td style="width: 10%">
-            <p>
-              <b class="cw-field-label" style="display: inline-block"
-                >Selected :
-              </b>
-            </p>
-          </td>
-          <td>
-            <input
-              type="text"
-              id="id-title"
-              class="cw-input-field"
-              readonly="readonly"
-              style="width: 100%; overflow: hidden"
-              onclick="this.select();"
-              onmouseup="return false;"
-              value=""
-            />
-          </td>
-        </tr>
-        <tr>
-          <td style="width: 10%">
-            <p><b class="cw-field-label">Task url : </b></p>
-          </td>
-          <td>
+        <input
+          type="text"
+          id="id-title"
+          class="cw-input-field inline"
+          readonly="readonly"
+          style="width: 89%; overflow: hidden"
+          onclick="this.select();"
+          onmouseup="return false;"
+          value=""
+        />
+      </div>
+
+      <!-- task url section -->
+      <div style="margin-bottom: 8px; position: relative">
+        <div class="cw-field-label inline verticalalign" style="width: 10%">
+          Task url :
+        </div>
+
+        <div
+          class="inline verticalalign"
+          style="position: relative; width: 89%"
+        >
+          <div style="width: 100%; position: absolute">
             <input
               type="text"
               id="id-link"
-              class="cw-input-field"
+              class="cw-input-field inline"
               readonly="readonly"
               style="width: 100%; overflow: hidden"
               onclick="this.select();"
               onmouseup="return false;"
               value=""
             />
-          </td>
-        </tr>
-        <tr>
-          <td style="width: 10%">
-            <p><b class="cw-field-label">Decription : </b></p>
-          </td>
-          <td>
-            <input
-              type="text"
+          </div>
+          <div style="float: right; position: absolute; top: 0; right: 0">
+            <button class="cw-toolbar-button">Download</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- description section -->
+      <div style="margin-bottom: 8px; margin-top: 30px; position: relative">
+        <div
+          class="cw-field-label inline verticalalign"
+          style="width: 10%; margin-bottom: 8px"
+        >
+          Decription :
+        </div>
+
+        <div
+          class="inline verticalalign"
+          style="position: relative; width: 89%"
+        >
+          <div>
+            <textarea
+              class="cw-textarea"
+              name="id-task-desc"
               id="id-task-desc"
-              class="cw-input-field"
               readonly="readonly"
-              style="width: 100%; overflow: hidden"
-              onclick="this.select();"
-              onmouseup="return false;"
-              value=""
-            />
-          </td>
-        </tr>
-      </table>
+              style="
+                height: 120px;
+                width: 100%;
+                resize: none;
+                overflow: visible;
+                background-color: rgba(231, 224, 210, 0.801);
+              "
+            >
+            </textarea>
+          </div>
+          <div style="float: right; position: absolute; top: 0; right: 0">
+            <button class="cw-toolbar-button" >copy</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
