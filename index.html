@@ -134,8 +134,8 @@
         //future functions for initialization yet to be written.
       }
 
-      function copyToClipBoard() {
-        var taskDescElement = document.getElementById("id-task-desc");
+      function copyToClipBoard(id) {
+        var taskDescElement = document.getElementById(id);
         if (taskDescElement.value == "" || taskDescElement.value == undefined) {
           window.alert("nothing to copy");
         } else {
@@ -154,6 +154,7 @@
         }
       }
     </script>
+
     <style>
       .inline {
         display: inline-block;
@@ -245,15 +246,26 @@
               value=""
             />
           </div>
-          <div style="float: right; position: absolute; top: 0; right: 0">
-            <button
-              id="btn-download"
-              class="cw-toolbar-button"
-              onclick="downloadTask()"
-            >
-              Download
-            </button>
+
+          <div  style="float: right; position: absolute; top: 0; right: 0">
+            <div class="inline" >
+              <button
+                id="btn-copyurl"
+                class="cw-toolbar-button"
+                onclick="copyToClipBoard('id-link')"
+              >copy url</button>
+            </div>
+            <div class="inline">
+              <button
+                id="btn-download"
+                class="cw-toolbar-button"
+                onclick="downloadTask()"
+              >
+                Download
+              </button>
+            </div>  
           </div>
+          
         </div>
       </div>
 
@@ -288,7 +300,7 @@
             <button
               id="btn-copy"
               class="cw-toolbar-button"
-              onclick="copyToClipBoard()"
+              onclick="copyToClipBoard('id-task-desc')"
             >
               copy
             </button>
