@@ -10,7 +10,7 @@
             "taskId" : "1",
             "name" : "Automate Issues Task 1",
             "productCategory": "Automate",
-            "description": "this is the description of automate",
+            "description": "this is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\nthis is the description of automate\n",
             "url" : "https://connectwise.com/sampletaskdownloadlocation1"
         },
         {
@@ -31,7 +31,7 @@
             "taskId" : "4",
             "name" : "Manage Issues Task 4",
             "productCategory": "Manage",
-            "description": "this is the description of manage issues task 4",
+            "description": "this is the description of manage issues task 4\nthis is the description of manage issues task 4\nthis is the description of manage issues task 4\nthis is the description of manage issues task 4\nthis is the description of manage issues task 4\nthis is the description of manage issues task 4\n",
             "url" : "https://connectwise.com/sampletaskdownloadlocation2"
         }
 

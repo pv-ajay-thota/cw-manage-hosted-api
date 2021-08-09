@@ -58,11 +58,18 @@
           document.getElementById("id-link").value = "";
           document.getElementById("id-title").value = "";
           document.getElementById("id-task-desc").value = "";
+          document.getElementById("id-task-desc").style.height =
+            document.getElementById("id-task-desc").scrollHeight + "px";
+        } else {
+          // update fields
+          document.getElementById("id-link").value = task[0].url;
+          document.getElementById("id-title").value = task[0].name;
+          descTag = document.getElementById("id-task-desc");
+          descTag.style.height = "0" + "px";
+          descTag.value = task[0].description;
+          descTag.style.height =
+            document.getElementById("id-task-desc").scrollHeight + "px";
         }
-        // update fields
-        document.getElementById("id-link").value = task[0].url;
-        document.getElementById("id-title").value = task[0].name;
-        document.getElementById("id-task-desc").value = task[0].description;
       }
 
       function populateTaskList(ele) {
@@ -119,7 +126,6 @@
       }
 
       function initSelection() {
-        
         loadJSON(
           taskInventoryUrl,
           function (data) {
@@ -180,16 +186,18 @@
   </head>
 
   <body onload="initSelection()">
-    <div class="cw-text" >
+    <div>
       <div class="cw-field-label" style="margin-bottom: 8px">
         Select Automation task:
       </div>
       <!-- select product and task -->
       <div id="dd" style="margin-bottom: 8px">
-        <div class="cw-field-label inline" style="font-size: 12px;width: 10%">Product:</div>
-        <div class="inline" style="width: 89%;">
+        <div class="cw-field-label inline" style="font-size: 12px; width: 10%">
+          Product:
+        </div>
+        <div class="inline" style="width: 89%">
           <select
-            style="font-size: 12px;width: 20%"
+            style="font-size: 12px; width: 20%"
             class="cw-select inline"
             id="product-list"
             onchange="populateTaskList(this)"
@@ -199,7 +207,7 @@
           </select>
 
           <select
-            style="font-size: 12px;width: 79%"
+            style="font-size: 12px; width: 79%"
             class="cw-select inline"
             id="task-list"
             onchange="showDesc(this)"
@@ -211,13 +219,15 @@
       <!-- select product and task ends here -->
       <!-- Selected: Task Name -->
       <div style="margin-bottom: 8px">
-        <div class="cw-field-label inline" style="font-size: 12px;width: 10%">Selected :</div>
+        <div class="cw-field-label inline" style="font-size: 12px; width: 10%">
+          Selected :
+        </div>
         <input
           type="text"
           id="id-title"
           class="cw-input-field inline"
           readonly="readonly"
-          style="font-size: 12px;width: 89%; overflow: hidden"
+          style="font-size: 12px; width: 89%; overflow: hidden"
           onclick="this.select();"
           onmouseup="return false;"
           value=""
@@ -226,10 +236,12 @@
 
       <!-- task url section -->
       <div style="margin-bottom: 8px; position: relative">
-        <div class="cw-field-label inline verticalalign" style="font-size: 12px;width: 10%">
+        <div
+          class="cw-field-label inline verticalalign"
+          style="font-size: 12px; width: 10%"
+        >
           Task url :
         </div>
-
         <div
           class="inline verticalalign"
           style="position: relative; width: 89%"
@@ -240,22 +252,25 @@
               id="id-link"
               class="cw-input-field inline"
               readonly="readonly"
-              style="font-size: 12px;width: 100%; overflow: hidden"
+              style="font-size: 12px; width: 100%; overflow: hidden"
               onclick="this.select();"
               onmouseup="return false;"
               value=""
             />
           </div>
 
-          <div  style="float: right; position: absolute; top: 0; right: 0">
-            <div class="inline" >
+          <div style="float: right; position: absolute; top: 0; right: 0">
+            <div class="inline" style="position: relative">
               <button
                 id="btn-copyurl"
                 class="cw-toolbar-button"
                 onclick="copyToClipBoard('id-link')"
-              >copy url</button>
+              >
+                copy link
+              </button>
             </div>
-            <div class="inline">
+            <div class="inline">or</div>
+            <div class="inline" style="position: relative">
               <button
                 id="btn-download"
                 class="cw-toolbar-button"
@@ -263,17 +278,26 @@
               >
                 Download
               </button>
-            </div>  
+            </div>
           </div>
-          
         </div>
+      </div>
+
+      <!-- note section -->
+      <div style="margin-left: 10%; margin-top: 15px" class="cw-text">
+        NOTE:
+        <i>
+          you can <b>'copy link'</b> and share it with partner or if you are
+          running at the partners end please click <b>'download'</b>
+        </i>
+        proceed for task execution.
       </div>
 
       <!-- description section -->
       <div style="margin-bottom: 8px; margin-top: 30px; position: relative">
         <div
           class="cw-field-label inline verticalalign"
-          style="font-size: 12px;width: 10%; margin-bottom: 8px"
+          style="font-size: 12px; width: 10%; margin-bottom: 8px"
         >
           Decription :
         </div>
@@ -288,14 +312,14 @@
             id="id-task-desc"
             readonly="readonly"
             style="
-            font-size: 12px;
-              height: auto;
+              font-size: 12px;
               width: 100%;
               resize: none;
               overflow: hidden;
               background-color: azure;
             "
-          ></textarea>
+          >
+          </textarea>
           <div style="float: right; position: absolute; top: 0; right: 0">
             <button
               id="btn-copy"
