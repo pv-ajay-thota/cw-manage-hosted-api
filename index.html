@@ -46,30 +46,31 @@
         document.getElementById("id-title").value = "";
         descTag = document.getElementById("id-task-desc");
         descTag.value = "";
-        descTag.style.height = "Auto";
+        descTag.style.height = "10px";
       }
 
       function showDesc(ele) {
+
         var taskId = ele.options[ele.selectedIndex].value;
 
         var task = myData.taskList.filter(function (item) {
           return item.taskId == taskId;
         });
-        console.log(task);
-        console.log("hello hello");
-        if (task == undefined) {
-          console.log("hello hello again");
 
+        if (task == undefined || task.length == 0) {
           document.getElementById("id-link").value = "";
           document.getElementById("id-title").value = "";
-          document.getElementById("id-task-desc").innerHTML = "";
+          document.getElementById("id-task-desc").value = "";
           document.getElementById("id-task-desc").style.height =
-            document.getElementById("id-task-desc").scrollHeight + "px";
+            "auto";          
+          //document.getElementById("id-task-desc").style.height =
+            //document.getElementById("id-task-desc").scrollHeight + "px";
         } else {
           // update fields
           document.getElementById("id-link").value = task[0].url;
           document.getElementById("id-title").value = task[0].name;
           descTag = document.getElementById("id-task-desc");
+          descTag.style.height = "10px";
           descTag.value = task[0].description;
           descTag.style.height =
             document.getElementById("id-task-desc").scrollHeight + "px";
@@ -294,10 +295,10 @@
       >
         <b>NOTE:</b>
         <i>
-          you can <b>'copy link'</b> and share it with partner or if you are
-          running at the partners end please click <b>'download'</b>
+          <b>'copy link'</b> to share it with partner's or enduser else for local copy to your machine
+          please click <b>'download'</b>
         </i>
-        and proceed for task execution.
+        .
       </div>
 
       <!-- description section -->
