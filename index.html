@@ -164,6 +164,7 @@
           window.open($taskUrl, "_blank");
         }
       }
+
     </script>
 
     <style>
@@ -192,8 +193,10 @@
 
   <body onload="initSelection()">
     <div>
-      <div class="cw-field-label" style="margin-bottom: 8px">
-        Select Automation task:
+      <div>
+        <div class="cw-field-label" style="margin-bottom: 8px">
+          Select Automation task:
+        </div>
       </div>
       <!-- select product and task -->
       <div id="dd" style="margin-bottom: 8px">
@@ -327,6 +330,7 @@
               background-color: azure;
             "
           ></textarea>
+          
           <div style="float: right; position: absolute; top: 0; right: 0">
             <button
               id="btn-copy"
@@ -336,8 +340,22 @@
               copy
             </button>
           </div>
+
+          <div style="float: right;">
+            <!-- <button
+              id="btn-feedback"
+              class="cw-toolbar-button"
+              onclick="copyToClipBoard('id-task-desc')"
+            >
+              feedback &#x1F4AC;
+            </button> -->
+            <a class="cw-toolbar-button" href="https://forms.office.com/r/wDMAgbxWuX" target="_blank">Feedback &#x1F4AC;</a>
+          </div>
         </div>
+
       </div>
+
+
     </div>
   </body>
 </html>
