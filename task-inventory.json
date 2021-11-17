@@ -1,47 +1,84 @@
 {
     "url": "https://na.myconnectwise.net",
     "products": [
-        "Automate"
+        "Automate",
+        "Manage",
+        "UAT"
     ],
     "taskList":[
         
+        {
+            "taskId" : "1000",
+            "name" : "Automate Log Gathering Tool",
+            "productCategory": "Automate",
+            "description": "Log gathering tool will collect all the relevent logsof Automate product and compress it to form a single zip file for uploading and review by escalation engineer.",
+            "url" : "https://utilities.itsupport247.net/pstautomation/CWAutoLogCollector.exe"
+        },
         {
             "taskId" : "1001",
             "name" : "Agent not installing properly",
             "productCategory": "Automate",
             "description": "Mentioned Automation Task can be executed if the issue of  connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. This error is a timeout error that means the client attempted to contact the server and did not receive a response. \n Which can be explained with various reasons such as wrong or incorrect relay address, blocked relay port in router, internet issues, relevent services are turned off or DNS could be pointing to the wrong location.",
-            "url" : "https://update2.itsupport247.net/pstautomation/automate/AgentNotInstallingProperly.exe"
+            "url" : "https://utilities.itsupport247.net/pstautomation/automate/AgentNotInstallingProperly.exe"
         },
         {
             "taskId" : "1002",
             "name" : "Control Centre not installing or launching",
             "productCategory": "Automate",
             "description": "Automation task will assist you if you are facing an issue of unable to launch or install Control Centre. It checks for the pre-requisite and provides information related to the same. Automation tasks capabilities are mentioned below \n 1. Download & Run DotNet repair \n 2. Uninstall Automate Control Center \n 3. Delete Folder LabTech Client & LabTech Plugin \n 4. Delete Client Folder from HKEYCURRENTUSER - SOFTWARE - LabTech \n 5. Download Automate Control Center Installer , Unblock & Install with Administrative Privilege",
-            "url" : "https://update2.itsupport247.net/pstautomation/automate/ControlCenterNotInstalling.exe"
+            "url" : "https://utilities.itsupport247.net/pstautomation/automate/ControlCenterNotInstalling.exe"
         },
         {
             "taskId" : "1003",
             "name" : "Control Centre performance issues like freezing or crashing or slowness",
             "productCategory": "Automate",
             "description": "Automation task will assist you if you are facing an issue of Control Centre performance issues like freezing or crashing or slowness",
-            "url" : "https://update2.itsupport247.net/pstautomation/automate/ControlCenterPerformanceIssues.exe"
+            "url" : "https://utilities.itsupport247.net/pstautomation/automate/ControlCenterPerformanceIssues.exe"
         },
         {
             "taskId" : "1004",
             "name" : "Server Down Performance or Slowness issues",
             "productCategory": "Automate",
             "description": "Automation task will assist you if you are facing an issue of Server Down or server facing Performance or Slowness issues",
-            "url" : "https://update2.itsupport247.net/pstautomation/automate/ServerPerformanceIssues.exe"
+            "url" : "https://utilities.itsupport247.net/pstautomation/automate/ServerPerformanceIssues.exe"
         },
         {
             "taskId" : "1005",
             "name" : "Unable to re-install Agent",
             "productCategory": "Automate",
             "description": "Automation task will assist you if you are facing an issue of Unable to re-install Agent. Automation task will delete all the residual entries from the machine related to agent binaries.",
-            "url" : "https://update2.itsupport247.net/pstautomation/automate/UnableToReInstallAgent.exe"
+            "url" : "https://utilities.itsupport247.net/pstautomation/automate/UnableToReInstallAgent.exe"
+        },
+        {
+            "taskId" : "1006",
+            "name" : "Users Unable to Login to Control Center",
+            "productCategory": "UAT",
+            "description": "Automation task will assist you if all users are facing an issue of Unable to login to Control Center. Automation task will delete all the residual entries from the machine related to agent binaries.",
+            "url" : "https://utilities.itsupport247.net/pstautomation/automate/UsersUnableToLoginToControlCentre.exe"
+        },
+        {
+            "taskId" : "1007",
+            "name" : "Agents Not Checking Into Automate Server",
+            "productCategory": "UAT",
+            "description": "Automation task will assist you if you are facing an issue of Agents not checking into automate server. Automation task will delete all the residual entries from the machine related to agent binaries.",
+            "url" : "https://utilities.itsupport247.net/pstautomation/automate/Agentsnotcheckingintoautomateserver.exe"
+        },
+        {
+            "taskId" : "1008",
+            "name" : "Issues with Log files growing unusually high",
+            "productCategory": "UAT",
+            "description": "Automation task will assist you if you are facing an issue of log files growing unusually high. Automation task will delete all the residual entries from the machine related to agent binaries.",
+            "url" : "https://utilities.itsupport247.net/pstautomation/automate/LogFilesGrowingUnusuallyHigh.exe"
+        },
+        {
+            "taskId" : "2000",
+            "name" : "Manage Log Gathering Tool",
+            "productCategory": "Manage",
+            "description": "Log gathering tool will collect all the relevent logs of Manage product and compress it to form a single zip file for uploading and review by escalation engineer.",
+            "url" : "https://utilities.itsupport247.net/pstautomation/CWManLogCollector.exe"
         }
+        
 
     ]
 
 }
-

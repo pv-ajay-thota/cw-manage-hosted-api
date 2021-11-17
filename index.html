@@ -176,18 +176,80 @@
         vertical-align: top;
       }
 
-      /*
-      .textbox {
-        position: relative;
-        background-color: #bfbcb4;
-        
-      }
-
-*/
-
       #product-list {
         width: 100px;
       }
+
+      .rainbow {
+        background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+        background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+        color:transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        
+        animation: animatedBackground 5s linear infinite, mymove 0.5s infinite  ;
+          -moz-animation: animatedBackground 5s linear infinite, mymove 0.5s infinite ;
+          -webkit-animation: animatedBackground 5s linear infinite, mymove 0.5s infinite;
+          -ms-animation: animatedBackground 5s linear infinite, mymove 0.5s infinite;
+          -o-animation: animatedBackground 5s linear infinite, mymove 0.5s infinite;
+        
+      }
+
+      .rainbow:hover {
+        animation-play-state: paused;
+      }
+      
+      /* Animation rainbow background */
+      @keyframes animatedBackground {
+          0% { background-position: 0; }
+          100% { background-position: 500px; }
+      }
+      @-moz-keyframes animatedBackground {
+          0% { background-position: 0; }
+          100% { background-position: 500px; }
+      }
+      @-webkit-keyframes animatedBackground {
+          0% { background-position: 0; }
+          100% { background-position: 500px; }
+      }
+      @-ms-keyframes animatedBackground {
+          0% { background-position: 0; }
+          100% { background-position: 500px; }
+      }
+      @-o-keyframes animatedBackground {
+          0% { background-position: 0; }
+          100% { background-position: 500px; }
+      }
+
+
+      .txt-resize {
+        animation: mymove 0.5s infinite;
+      }
+
+      @keyframes mymove {
+        100% {font-size: 18px;}
+      }
+
+      .moduleAnimationShock{
+        width: 300px;
+        margin: 0 auto;
+        position: relative; 
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        height: 240px;
+        border: 1px solid #bdc7d8;
+        text-align: center;
+      }
+
+      @-webkit-keyframes diagonal-slide {
+        from { top: 0; left: 0; animation-timing-function: linear; }
+        20% { top: -5px; left: -5px; animation-timing-function: linear; }
+        40% { top: 5px; left: -5px; animation-timing-function: linear; }
+        60% { top: 5px; left: 5px; animation-timing-function: linear; }
+        80% { top: -5px; left: 5px; animation-timing-function: linear; }
+        to { top: 0; left: 0; animation-timing-function: linear; }
+      }
+
     </style>
   </head>
 
@@ -298,12 +360,16 @@
       >
         <b>NOTE:</b>
         <i>
-          <b>'copy link'</b> to share it with partner's or enduser else for local copy to your machine
+          <b>'copy link'</b> to share it with partner's or end user else for local copy to your machine
           please click <b>'download'</b>
         </i>
         .
       </div>
 
+      <!-- enter to win section contest section -->
+      <div style="text-align: center;">
+              <a class="cw-toolbar-button rainbow" href="https://forms.office.com/r/fF2NezUPvw" target="_blank">Enter to Win</a>
+      </div>
       <!-- description section -->
       <div style="margin-bottom: 8px; margin-top: 30px; position: relative">
         <div
@@ -350,7 +416,11 @@
               feedback &#x1F4AC;
             </button> -->
             <a class="cw-toolbar-button" href="https://forms.office.com/r/wDMAgbxWuX" target="_blank">Feedback &#x1F4AC;</a>
+          
+
+
           </div>
+
         </div>
 
       </div>
